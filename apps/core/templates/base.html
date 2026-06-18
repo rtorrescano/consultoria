@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %}Desarrollador web y consultor de proyectos en México. Especialista en landing pages, sitios para escuelas y sistemas a medida.{% endblock %}">
+    <title>{% block title %}Raúl Torrescano - Consultoría y Desarrollo Web{% endblock %}</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="font-['Inter'] antialiased bg-gray-50">
+    
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-xl font-bold text-blue-600">
+                    Raúl Torrescano
+                </a>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/" class="text-gray-700 hover:text-blue-600 transition">Inicio</a>
+                    <a href="/portafolio/" class="text-gray-700 hover:text-blue-600 transition">Portafolio</a>
+                    <a href="/blog/" class="text-gray-700 hover:text-blue-600 transition">Blog</a>
+                    <a href="/contacto/" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                        Contactar
+                    </a>
+                </nav>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-3 space-y-2">
+                <a href="/" class="block text-gray-700 hover:text-blue-600">Inicio</a>
+                <a href="/portafolio/" class="block text-gray-700 hover:text-blue-600">Portafolio</a>
+                <a href="/blog/" class="block text-gray-700 hover:text-blue-600">Blog</a>
+                <a href="/contacto/" class="block bg-blue-600 text-white px-4 py-2 rounded-lg text-center">Contactar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Raúl Torrescano</h3>
+                    <p class="text-sm">Transformando ideas en soluciones digitales que impulsan tu negocio.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Enlaces</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/" class="hover:text-white transition">Inicio</a></li>
+                        <li><a href="/portafolio/" class="hover:text-white transition">Portafolio</a></li>
+                        <li><a href="/blog/" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="/contacto/" class="hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Servicios</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Landing Pages</a></li>
+                        <li><a href="#" class="hover:text-white transition">Sitios para Escuelas</a></li>
+                        <li><a href="#" class="hover:text-white transition">Sistemas a Medida</a></li>
+                        <li><a href="#" class="hover:text-white transition">Consultoría PM</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Conecta</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-2xl hover:text-white transition"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-2xl hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+                © {% now "Y" %} Raúl Torrescano. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

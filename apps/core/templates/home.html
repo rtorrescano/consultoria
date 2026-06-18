@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+                    Transformo ideas en soluciones digitales que impulsan tu negocio
+                </h1>
+                <p class="text-xl text-blue-100 mt-4">
+                    Desarrollo sitios web profesionales, sistemas a la medida y lidero proyectos tecnológicos con metodologías ágiles.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="/contacto/" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        Cotizar mi proyecto
+                    </a>
+                    <a href="/portafolio/" class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
+                        Ver portafolio
+                    </a>
+                </div>
+                <div class="mt-6 flex gap-6 text-sm">
+                    <span>✅ 5+ años de experiencia</span>
+                    <span>✅ 20+ proyectos entregados</span>
+                    <span>✅ Metodologías ágiles</span>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center">
+                    <i class="fas fa-code text-7xl text-blue-300"></i>
+                    <p class="mt-4 text-blue-100">Soluciones tecnológicas a tu medida</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Servicios -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Servicios Especializados</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition">
+                <div class="text-4xl text-blue-600 mb-4">🚀</div>
+                <h3 class="text-xl font-bold mb-2">Landing Pages</h3>
+                <p class="text-gray-600">Diseño optimizado para captar leads y ventas. Ideal para campañas y lanzamientos.</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition">
+                <div class="text-4xl text-blue-600 mb-4">🎓</div>
+                <h3 class="text-xl font-bold mb-2">Sitios para Escuelas</h3>
+                <p class="text-gray-600">Plataformas institucionales con calendario, noticias y portal de padres.</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition">
+                <div class="text-4xl text-blue-600 mb-4">⚙️</div>
+                <h3 class="text-xl font-bold mb-2">Sistemas a Medida</h3>
+                <p class="text-gray-600">Aplicaciones web con base de datos, reportes y lógica de negocio personalizada.</p>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+            <a href="#" class="text-blue-600 font-semibold hover:underline">Explora todos los servicios →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Portafolio Destacado -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Proyectos Destacados</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            {% for proyecto in proyectos %}
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                {% if proyecto.imagen_principal %}
+                <img src="{{ proyecto.imagen_principal.url }}" alt="{{ proyecto.titulo }}" class="w-full h-48 object-cover">
+                {% endif %}
+                <div class="p-6">
+                    <span class="inline-block bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded mb-2">{{ proyecto.categoria.nombre }}</span>
+                    <h3 class="text-lg font-bold">{{ proyecto.titulo }}</h3>
+                    <p class="text-gray-600 text-sm mt-1">{{ proyecto.cliente }}</p>
+                    <div class="flex flex-wrap gap-1 mt-2">
+                        {% for tech in proyecto.tecnologias.all|slice:":3" %}
+                        <span class="bg-gray-100 text-xs px-2 py-1 rounded">{{ tech.nombre }}</span>
+                        {% endfor %}
+                    </div>
+                    <a href="/portafolio/{{ proyecto.slug }}/" class="inline-block mt-4 text-blue-600 font-semibold hover:underline">
+                        Ver caso →
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-gray-500 col-span-3 text-center">Próximamente más proyectos.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Proceso de Trabajo -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Mi Proceso de Trabajo</h2>
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="text-center">
+                <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">1</div>
+                <h4 class="font-bold mt-4">Descubrimiento</h4>
+                <p class="text-gray-600 text-sm">Entiendo tus metas y las necesidades de tus usuarios.</p>
+            </div>
+            <div class="text-center">
+                <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">2</div>
+                <h4 class="font-bold mt-4">Propuesta</h4>
+                <p class="text-gray-600 text-sm">Defino alcance, cronograma y presupuesto detallado.</p>
+            </div>
+            <div class="text-center">
+                <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">3</div>
+                <h4 class="font-bold mt-4">Desarrollo</h4>
+                <p class="text-gray-600 text-sm">Sprints ágiles con entregas semanales y feedback.</p>
+            </div>
+            <div class="text-center">
+                <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">4</div>
+                <h4 class="font-bold mt-4">Entrega</h4>
+                <p class="text-gray-600 text-sm">Capacitación, documentación y soporte post-lanzamiento.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Preview -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Blog & Insights</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            {% for post in posts %}
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                {% if post.imagen %}
+                <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="w-full h-40 object-cover">
+                {% endif %}
+                <div class="p-6">
+                    <span class="text-sm text-blue-600">{{ post.categoria.nombre }}</span>
+                    <h3 class="text-lg font-bold mt-1">{{ post.titulo }}</h3>
+                    <p class="text-gray-600 text-sm mt-2">{{ post.extracto|truncatechars:100 }}</p>
+                    <a href="/blog/{{ post.slug }}/" class="inline-block mt-4 text-blue-600 font-semibold hover:underline">
+                        Leer más →
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-gray-500 col-span-3 text-center">Próximamente artículos.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Final -->
+<section class="bg-blue-600 text-white py-16">
+    <div class="max-w-4xl mx-auto text-center px-4">
+        <h2 class="text-3xl font-bold mb-4">¿Listo para digitalizar tu negocio?</h2>
+        <p class="text-xl text-blue-100 mb-8">Conversemos sobre tu proyecto sin compromiso.</p>
+        <a href="/contacto/" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block">
+            Contactar ahora
+        </a>
+    </div>
+</section>
+{% endblock %}
