@@ -23,9 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',          # Para SEO
-    # Third party
-    'tailwind',
-    'theme',                            # App de tailwind
+    
     # Local apps
     'apps.core',
     'apps.portfolio',
@@ -50,7 +48,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
+        'APP_DIRS': True,  # <-- Esto DEBE ser True
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -107,3 +105,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default='')
+
+NPM_BIN_PATH =  r"C:\aplicacioness\nodejs\npm.cmd"

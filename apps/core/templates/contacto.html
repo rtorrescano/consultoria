@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contacto - Raúl Torrescano{% endblock %}
+
+{% block content %}
+
+<!-- ============================================================ -->
+<!-- HERO -->
+<!-- ============================================================ -->
+<section class="hero-gradient py-5 text-white">
+    <div class="container py-5">
+        <div class="text-center">
+            <span class="badge bg-white bg-opacity-10 rounded-pill px-4 py-2 mb-3">
+                <i class="fas fa-comment-dots text-warning me-2"></i>Contacto
+            </span>
+            <h1 class="display-3 fw-bold mb-4">Hablemos de tu próximo <span class="text-gradient-cyber">éxito digital</span></h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 700px;">
+                Cuéntanos sobre tu visión. Ya sea una startup escalable o una transformación empresarial, estamos listos para ejecutar con precisión técnica.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FORMULARIO + INFO -->
+<!-- ============================================================ -->
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="row g-5">
+            
+            <!-- Formulario -->
+            <div class="col-lg-7">
+                <div class="glass-card p-5 rounded-4">
+                    <form method="post" class="row g-4">
+                        {% csrf_token %}
+                        
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Nombre completo</label>
+                            <input type="text" name="nombre" class="form-control form-control-lg bg-light border-0" 
+                                   placeholder="John Doe" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Email corporativo</label>
+                            <input type="email" name="email" class="form-control form-control-lg bg-light border-0" 
+                                   placeholder="john@company.com" required>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Tipo de Proyecto</label>
+                            <select name="tipo_proyecto" class="form-select form-select-lg bg-light border-0">
+                                <option>Diseño UI/UX & Prototipado</option>
+                                <option>Desarrollo Web Fullstack</option>
+                                <option>App Móvil (iOS/Android)</option>
+                                <option>Consultoría Agile</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Rango de Presupuesto (USD)</label>
+                            <select name="presupuesto" class="form-select form-select-lg bg-light border-0">
+                                <option>$5k - $10k</option>
+                                <option>$10k - $25k</option>
+                                <option>$25k - $50k</option>
+                                <option>$50k+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">Descripción del Proyecto</label>
+                            <textarea name="mensaje" class="form-control bg-light border-0" rows="5" 
+                                      placeholder="Háblanos de los objetivos, plazos y desafíos..." required></textarea>
+                        </div>
+                        
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-cyber-indigo rounded-pill px-5 py-3 fs-5 w-100">
+                                <i class="fas fa-paper-plane me-2"></i>Enviar Propuesta
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Información de Contacto -->
+            <div class="col-lg-5">
+                <div class="glass-card p-5 rounded-4 mb-4">
+                    <h2 class="h4 fw-bold mb-3">
+                        <i class="fas fa-envelope text-cyber-indigo me-2"></i>Canales Directos
+                    </h2>
+                    <ul class="list-unstyled">
+                        <li class="d-flex align-items-start gap-3 mb-3">
+                            <div class="bg-cyber-indigo bg-opacity-10 rounded-3 p-2">
+                                <i class="fas fa-envelope text-cyber-indigo"></i>
+                            </div>
+                            <div>
+                                <span class="fw-bold d-block">Email</span>
+                                <a href="mailto:raul@tudominio.com" class="text-dark text-decoration-none">raul@tudominio.com</a>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-start gap-3">
+                            <div class="bg-cyber-indigo bg-opacity-10 rounded-3 p-2">
+                                <i class="fas fa-map-marker-alt text-cyber-indigo"></i>
+                            </div>
+                            <div>
+                                <span class="fw-bold d-block">Ubicación</span>
+                                <span>Ciudad de México, MX</span>
+                                <p class="text-secondary small mb-0">Disponible para proyectos remotos a nivel global.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card p-5 rounded-4 mb-4" style="background: linear-gradient(135deg, #e2dfff 0%, #c3c0ff 100%);">
+                    <h2 class="h4 fw-bold mb-2">Reserva una llamada</h2>
+                    <p class="text-secondary mb-3">Agenda una sesión de 30 minutos para profundizar en tu estrategia digital sin compromiso.</p>
+                    <a href="#" class="btn btn-dark rounded-pill px-4 py-2">
+                        <i class="fas fa-calendar-check me-2"></i>Ver disponibilidad
+                    </a>
+                </div>
+                
+                <div class="rounded-4 overflow-hidden shadow-lg position-relative" style="height: 200px;">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhq7WfJe9hIovijPxkvC8I6Wr5HjUqt2aucqYBN6_n9mbgUV8NV-_Q4Wrf6T2Sv5A6nek7QnjF7TNi3xHjARasxk6UhI2jiEBK4_wd_SyJUvwl79WhsIW7vPhJR-pOolW2Qw61eXt3enlhgq3YNxyBt_CRzEvyfipJ6bSDP4nkletUKmNQ2AFEHdXxUiK7IBV0iWEZbqpiqHDaUDqq8Qy4cyhi-_YqxobNLhBQw5BGMg9t1gfUOoizfkngBCZlxICkhPbpJ8cCU8M" 
+                         alt="CDMX" class="w-100 h-100" style="object-fit: cover;">
+                    <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);">
+                        <span class="text-white fw-bold">
+                            <i class="fas fa-map-marker-alt me-2"></i>Ciudad de México
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- WHATSAPP FLOATING BUTTON -->
+<!-- ============================================================ -->
+<a href="https://wa.me/5215512345678" target="_blank" 
+   class="position-fixed bottom-0 end-0 m-4 z-3" 
+   style="background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); transition: all 0.3s ease;">
+    <i class="fab fa-whatsapp text-white fs-1"></i>
+</a>
+
+<style>
+    .position-fixed.bottom-0.end-0.m-4:hover {
+        transform: scale(1.1) rotate(5deg);
+    }
+</style>
+
+{% endblock %}

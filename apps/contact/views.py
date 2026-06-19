@@ -22,7 +22,7 @@ Presupuesto: {mensaje.presupuesto}
 Mensaje:
 {mensaje.mensaje}""",
                     mensaje.email,
-                    ['tu-email@example.com'],  # Cambiar por tu email
+                    ['raul.torrescanog@gmail.com'],  # Cambiar por tu email
                     fail_silently=True,
                 )
             except:

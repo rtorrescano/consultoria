@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Servicios - Raúl Torrescano{% endblock %}
+
+{% block content %}
+
+<!-- ============================================================ -->
+<!-- HERO -->
+<!-- ============================================================ -->
+<section class="hero-gradient py-5 text-white">
+    <div class="container py-5">
+        <div class="text-center">
+            <span class="badge bg-white bg-opacity-10 rounded-pill px-4 py-2 mb-3">
+                <i class="fas fa-bolt text-warning me-2"></i>Nuestra Expertise
+            </span>
+            <h1 class="display-3 fw-bold mb-4">Soluciones digitales a tu medida</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 700px;">
+                Fusionamos ingeniería de software de alto nivel con estrategias Agile para materializar la visión tecnológica de tu negocio en el mercado mexicano.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SERVICIOS BENTO GRID -->
+<!-- ============================================================ -->
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="row g-4">
+            
+            <!-- Landing Pages -->
+            <div class="col-lg-7">
+                <div class="glass-card p-5 h-100 rounded-4 hover-lift position-relative overflow-hidden">
+                    <div class="d-flex align-items-center gap-4 mb-4">
+                        <div class="bg-cyber-indigo rounded-3 p-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-rocket text-white fs-2"></i>
+                        </div>
+                        <h2 class="h1 fw-bold">Landing Pages</h2>
+                    </div>
+                    <p class="lead text-secondary mb-4" style="max-width: 500px;">
+                        Optimizadas quirúrgicamente para la conversión de leads. Diseñamos experiencias de navegación que guían al usuario hacia el "sí" definitivo.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-2">High Conversion</span>
+                        <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-2">Speed Optimized</span>
+                        <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-2">A/B Ready</span>
+                    </div>
+                    <ul class="list-unstyled mb-4">
+                        <li class="d-flex align-items-center gap-2 mb-2">
+                            <i class="fas fa-check-circle text-cyber-indigo"></i>
+                            CRO (Conversion Rate Optimization) nativo.
+                        </li>
+                        <li class="d-flex align-items-center gap-2 mb-2">
+                            <i class="fas fa-check-circle text-cyber-indigo"></i>
+                            Integración con CRM y Email Marketing.
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-cyber-indigo rounded-pill px-5 py-3">
+                        Ver Detalles <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                    <div class="position-absolute end-0 bottom-0 opacity-10 d-none d-md-block">
+                        <i class="fas fa-rocket" style="font-size: 200px;"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sitios para Escuelas -->
+            <div class="col-lg-5">
+                <div class="glass-card p-5 h-100 rounded-4 hover-lift">
+                    <div class="mb-4">
+                        <div class="bg-cyber-indigo rounded-3 p-3 d-inline-block" style="width: 60px; height: 60px;">
+                            <i class="fas fa-school text-white fs-2"></i>
+                        </div>
+                    </div>
+                    <h2 class="h2 fw-bold">Sitios para Escuelas</h2>
+                    <p class="text-secondary mb-4">
+                        Plataformas institucionales que conectan a la comunidad educativa con eficiencia y elegancia.
+                    </p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="d-flex align-items-center gap-2 mb-2">
+                            <i class="fas fa-check-circle text-cyber-indigo"></i>
+                            Panel administrativo intuitivo
+                        </li>
+                        <li class="d-flex align-items-center gap-2 mb-2">
+                            <i class="fas fa-check-circle text-cyber-indigo"></i>
+                            Portales seguros para padres
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-outline-cyber-indigo rounded-pill px-5 py-3 border-2">
+                        Solicitar Demo
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sistemas a Medida -->
+            <div class="col-lg-5">
+                <div class="glass-card p-5 h-100 rounded-4 hover-lift">
+                    <div class="mb-4">
+                        <div class="bg-cyber-indigo rounded-3 p-3 d-inline-block" style="width: 60px; height: 60px;">
+                            <i class="fas fa-cogs text-white fs-2"></i>
+                        </div>
+                    </div>
+                    <h2 class="h2 fw-bold">Sistemas a Medida</h2>
+                    <p class="text-secondary mb-4">
+                        Lógica de negocio compleja transformada en software escalable y robusto. Arquitectura de microservicios.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <span class="badge bg-light text-secondary rounded-pill px-3 py-2">React</span>
+                        <span class="badge bg-light text-secondary rounded-pill px-3 py-2">Django</span>
+                        <span class="badge bg-light text-secondary rounded-pill px-3 py-2">PostgreSQL</span>
+                    </div>
+                    <a href="#" class="btn btn-cyber-indigo rounded-pill px-5 py-3 w-100">
+                        Consultar Proyecto
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Consultoría PM -->
+            <div class="col-lg-7">
+                <div class="glass-card p-5 h-100 rounded-4 hover-lift position-relative overflow-hidden">
+                    <div class="d-flex align-items-center gap-4 mb-4">
+                        <div class="bg-cyber-indigo rounded-3 p-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-people-group text-white fs-2"></i>
+                        </div>
+                        <h2 class="h1 fw-bold">Consultoría PM</h2>
+                    </div>
+                    <p class="lead text-secondary mb-4" style="max-width: 500px;">
+                        Coaching Scrum/Agile para equipos que buscan la excelencia operativa. Eliminamos cuellos de botella y maximizamos el valor de entrega.
+                    </p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="bg-light p-3 rounded-4">
+                                <span class="fw-bold text-cyber-indigo">Metodología</span>
+                                <p class="text-secondary small mb-0">Agile & Scrum Lean Development</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-light p-3 rounded-4">
+                                <span class="fw-bold text-cyber-indigo">Impacto</span>
+                                <p class="text-secondary small mb-0">Reducción 30% en Time-to-Market</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary rounded-pill px-5 py-3" style="background: #645efb; border: none;">
+                        Mejorar mis procesos
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CTA: ¿No sabes qué necesitas? -->
+<!-- ============================================================ -->
+<section class="section-padding">
+    <div class="container">
+        <div class="bg-dark text-white rounded-4 p-5 position-relative overflow-hidden">
+            <div class="position-absolute end-0 top-0 opacity-10">
+                <i class="fas fa-question-circle" style="font-size: 200px;"></i>
+            </div>
+            <div class="position-relative text-center" style="z-index: 1;">
+                <h2 class="display-5 fw-bold mb-4">¿No sabes qué necesitas?</h2>
+                <p class="lead text-white-50 mb-4 mx-auto" style="max-width: 600px;">
+                    A veces el camino técnico no es evidente. Analicemos tu caso sin costo y tracemos una hoja de ruta tecnológica.
+                </p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="#" class="btn btn-cyber-indigo rounded-pill px-5 py-3">
+                        <i class="fas fa-calendar-check me-2"></i>Agenda una consultoría gratuita
+                    </a>
+                    <a href="#" class="btn btn-outline-light rounded-pill px-5 py-3">
+                        Ver casos de éxito
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

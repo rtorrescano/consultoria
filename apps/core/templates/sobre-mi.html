@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sobre mí - Raúl Torrescano{% endblock %}
+
+{% block content %}
+
+<!-- ============================================================ -->
+<!-- HERO -->
+<!-- ============================================================ -->
+<section class="hero-gradient py-5 text-white">
+    <div class="container py-5">
+        <div class="text-center">
+            <span class="badge bg-white bg-opacity-10 rounded-pill px-4 py-2 mb-3">
+                <i class="fas fa-user-astronaut text-warning me-2"></i>Conóceme
+            </span>
+            <h1 class="display-3 fw-bold mb-4">Diseñando el futuro, <span class="text-gradient-cyber">línea por línea.</span></h1>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PERFIL -->
+<!-- ============================================================ -->
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+                <div class="position-relative">
+                    <div class="rounded-4 overflow-hidden shadow-lg border border-light">
+                        <img src="/media/foto-perfil.jpg" alt="Raúl Torrescano" 
+                             class="img-fluid w-100" style="height: 500px; object-fit: cover;">
+                    </div>
+                    <div class="position-absolute bottom-0 end-0 translate-middle bg-white rounded-3 p-3 shadow-lg">
+                        <div class="text-center">
+                            <span class="display-4 fw-bold text-cyber-indigo">10+</span>
+                            <p class="text-secondary small mb-0">Años de experiencia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="badge badge-cyber rounded-pill px-4 py-2 mb-3">
+                    <i class="fas fa-user-check me-2"></i>UI/UX Engineer & Fullstack Lead
+                </div>
+                <h2 class="display-5 fw-bold mb-4">Raúl Torrescano</h2>
+                <p class="lead text-secondary">
+                    Especialista en crear ecosistemas digitales que fusionan la estética impecable del diseño UI/UX con la robustez de la arquitectura de software moderna.
+                </p>
+                <p class="text-secondary">
+                    Mi enfoque se centra en transformar problemas complejos en interfaces intuitivas y escalables.
+                </p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="#" class="btn btn-cyber-indigo rounded-pill px-5 py-3">
+                        <i class="fas fa-download me-2"></i>Descargar CV (PDF)
+                    </a>
+                    <a href="#" class="btn btn-outline-cyber-indigo rounded-pill px-4 py-3 border-2">
+                        <i class="fab fa-linkedin me-2"></i>LinkedIn
+                    </a>
+                    <a href="#" class="btn btn-outline-cyber-indigo rounded-pill px-4 py-3 border-2">
+                        <i class="fab fa-github me-2"></i>GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FILOSOFÍA -->
+<!-- ============================================================ -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="badge badge-cyber rounded-pill px-4 py-2 mb-3">
+                <i class="fas fa-quote-left me-2"></i>Filosofía
+            </span>
+            <h2 class="display-5 fw-bold text-dark">"Código limpio, procesos ágiles, resultados medibles"</h2>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="glass-card p-4 h-100 rounded-4 hover-lift">
+                    <div class="bg-cyber-indigo bg-opacity-10 rounded-3 p-3 d-inline-flex mb-4" style="width: 60px; height: 60px;">
+                        <i class="fas fa-code text-cyber-indigo fs-2 m-auto"></i>
+                    </div>
+                    <h3 class="h4 fw-bold">Clean Code</h3>
+                    <p class="text-secondary">Mantenibilidad como prioridad. Desarrollo orientado a objetos y patrones de diseño sólidos.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card p-4 h-100 rounded-4 hover-lift">
+                    <div class="bg-cyber-indigo bg-opacity-10 rounded-3 p-3 d-inline-flex mb-4" style="width: 60px; height: 60px;">
+                        <i class="fas fa-bolt text-cyber-indigo fs-2 m-auto"></i>
+                    </div>
+                    <h3 class="h4 fw-bold">Agile Flow</h3>
+                    <p class="text-secondary">Iteración rápida y comunicación constante bajo metodologías Scrum y Kanban.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card p-4 h-100 rounded-4 hover-lift">
+                    <div class="bg-cyber-indigo bg-opacity-10 rounded-3 p-3 d-inline-flex mb-4" style="width: 60px; height: 60px;">
+                        <i class="fas fa-chart-line text-cyber-indigo fs-2 m-auto"></i>
+                    </div>
+                    <h3 class="h4 fw-bold">Data Driven</h3>
+                    <p class="text-secondary">Decisiones basadas en métricas de rendimiento y comportamiento del usuario.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TRAYECTORIA Y SKILLS -->
+<!-- ============================================================ -->
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="row g-5">
+            
+            <!-- Trayectoria -->
+            <div class="col-lg-7">
+                <h2 class="display-5 fw-bold mb-4">
+                    <i class="fas fa-history text-cyber-indigo me-2"></i>Trayectoria Profesional
+                </h2>
+                
+                <div class="position-relative ps-4">
+                    <!-- Línea de tiempo -->
+                    <div class="position-absolute start-0 top-0 bottom-0" style="width: 2px; background: linear-gradient(to bottom, #4f46e5 0%, #e0e3e5 100%);"></div>
+                    
+                    <!-- Item 1 -->
+                    <div class="position-relative mb-5">
+                        <div class="position-absolute start-0 top-1" style="width: 16px; height: 16px; background: #4f46e5; border-radius: 50%; border: 4px solid white; transform: translateX(-50%);"></div>
+                        <div class="ps-4">
+                            <span class="badge badge-cyber mb-1">2021 — Presente</span>
+                            <h4 class="fw-bold">Senior Fullstack Developer</h4>
+                            <p class="text-secondary fw-bold">Tech Innovators Corp.</p>
+                            <p class="text-secondary">Liderazgo del equipo de frontend y diseño de sistemas escalables en la nube. Implementación de microservicios con Django y React.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="position-relative mb-5">
+                        <div class="position-absolute start-0 top-1" style="width: 16px; height: 16px; background: #c6c6cd; border-radius: 50%; border: 4px solid white; transform: translateX(-50%);"></div>
+                        <div class="ps-4">
+                            <span class="badge badge-cyber mb-1">2018 — 2021</span>
+                            <h4 class="fw-bold">UI/UX Designer & Dev</h4>
+                            <p class="text-secondary fw-bold">Creative Digital Agency</p>
+                            <p class="text-secondary">Rediseño integral de plataformas bancarias logrando un aumento del 40% en la retención de usuarios a través de UX optimizado.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="position-relative">
+                        <div class="position-absolute start-0 top-1" style="width: 16px; height: 16px; background: #c6c6cd; border-radius: 50%; border: 4px solid white; transform: translateX(-50%);"></div>
+                        <div class="ps-4">
+                            <span class="badge badge-cyber mb-1">2015 — 2018</span>
+                            <h4 class="fw-bold">Junior Web Developer</h4>
+                            <p class="text-secondary fw-bold">StartUp Launchpad</p>
+                            <p class="text-secondary">Desarrollo de MVPs utilizando stacks modernos y metodologías ágiles para despliegue continuo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills y Certificaciones -->
+            <div class="col-lg-5">
+                <div class="glass-card p-4 rounded-4 mb-4">
+                    <h2 class="h4 fw-bold mb-3">
+                        <i class="fas fa-microchip text-cyber-indigo me-2"></i>Stack Tecnológico
+                    </h2>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-cyber-indigo bg-opacity-10 text-cyber-indigo rounded-pill px-3 py-2">HTML/CSS/JS</span>
+                        <span class="badge bg-cyber-indigo bg-opacity-10 text-cyber-indigo rounded-pill px-3 py-2">React</span>
+                        <span class="badge bg-cyber-indigo bg-opacity-10 text-cyber-indigo rounded-pill px-3 py-2">Python</span>
+                        <span class="badge bg-cyber-indigo bg-opacity-10 text-cyber-indigo rounded-pill px-3 py-2">Django</span>
+                        <span class="badge bg-cyber-indigo bg-opacity-10 text-cyber-indigo rounded-pill px-3 py-2">PostgreSQL</span>
+                        <span class="badge bg-cyber-indigo bg-opacity-10 text-cyber-indigo rounded-pill px-3 py-2">Scrum</span>
+                        <span class="badge bg-cyber-indigo bg-opacity-10 text-cyber-indigo rounded-pill px-3 py-2">TypeScript</span>
+                        <span class="badge bg-cyber-indigo bg-opacity-10 text-cyber-indigo rounded-pill px-3 py-2">Tailwind CSS</span>
+                        <span class="badge bg-cyber-indigo bg-opacity-10 text-cyber-indigo rounded-pill px-3 py-2">Git</span>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-4 rounded-4">
+                    <h2 class="h4 fw-bold mb-3">
+                        <i class="fas fa-award text-cyber-indigo me-2"></i>Certificaciones
+                    </h2>
+                    <ul class="list-unstyled">
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <div class="bg-cyber-indigo bg-opacity-10 rounded-3 p-2">
+                                <i class="fas fa-certificate text-cyber-indigo"></i>
+                            </div>
+                            <div>
+                                <span class="fw-bold">AWS Certified Solutions Architect</span>
+                                <p class="text-secondary small mb-0">Amazon Web Services</p>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <div class="bg-cyber-indigo bg-opacity-10 rounded-3 p-2">
+                                <i class="fas fa-certificate text-cyber-indigo"></i>
+                            </div>
+                            <div>
+                                <span class="fw-bold">Google Professional UX Designer</span>
+                                <p class="text-secondary small mb-0">Coursera / Google</p>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center gap-3">
+                            <div class="bg-cyber-indigo bg-opacity-10 rounded-3 p-2">
+                                <i class="fas fa-certificate text-cyber-indigo"></i>
+                            </div>
+                            <div>
+                                <span class="fw-bold">Scrum Master Certified (PSM I)</span>
+                                <p class="text-secondary small mb-0">Scrum.org</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CTA -->
+<!-- ============================================================ -->
+<section class="section-padding text-white" style="background: linear-gradient(135deg, #1a3a5c 0%, #2b5a8c 100%);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="display-5 fw-bold mb-3">¿Listo para escalar tu producto?</h2>
+                <p class="lead text-white-50">Hablemos sobre cómo mis habilidades técnicas y de diseño pueden llevar tu visión al siguiente nivel operativo.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="/contacto/" class="btn btn-light rounded-pill px-5 py-3 fw-bold text-dark">
+                    <i class="fas fa-calendar-check me-2"></i>Agenda una llamada
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog - Raúl Torrescano{% endblock %}
+
+{% block content %}
+
+<!-- ============================================================ -->
+<!-- HERO -->
+<!-- ============================================================ -->
+<section class="hero-gradient py-5 text-white">
+    <div class="container py-5">
+        <div class="text-center">
+            <span class="badge bg-white bg-opacity-10 rounded-pill px-4 py-2 mb-3">
+                <i class="fas fa-pen-fancy text-warning me-2"></i>Nuestro Blog
+            </span>
+            <h1 class="display-3 fw-bold mb-4">Perspectivas sobre diseño, código y estrategia digital.</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 700px;">
+                Explora guías detalladas, análisis técnicos y metodologías ágiles para potenciar tu presencia en el ecosistema digital mexicano.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CATEGORÍAS -->
+<!-- ============================================================ -->
+<section class="py-4 bg-light border-bottom">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a href="?categoria=todas" class="btn btn-cyber-indigo rounded-pill px-4 py-2">Todas las entradas</a>
+            <a href="?categoria=desarrollo-web" class="btn btn-outline-secondary rounded-pill px-4 py-2">Desarrollo Web</a>
+            <a href="?categoria=project-management" class="btn btn-outline-secondary rounded-pill px-4 py-2">Project Management</a>
+            <a href="?categoria=educacion" class="btn btn-outline-secondary rounded-pill px-4 py-2">Tecnología para Escuelas</a>
+            <a href="?categoria=productividad" class="btn btn-outline-secondary rounded-pill px-4 py-2">Productividad Digital</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- BLOG GRID -->
+<!-- ============================================================ -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row g-4">
+            
+            <!-- Artículo Destacado (Grande) -->
+            {% if posts|length > 0 %}
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm hover-lift rounded-4 overflow-hidden">
+                    {% if posts.0.imagen %}
+                    <img src="{{ posts.0.imagen.url }}" alt="{{ posts.0.titulo }}" 
+                         class="card-img-top" style="height: 350px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body p-4">
+                        <span class="badge badge-cyber mb-2">{{ posts.0.categoria.nombre }}</span>
+                        <h3 class="card-title fw-bold fs-2">
+                            <a href="/blog/{{ posts.0.slug }}/" class="text-dark text-decoration-none">{{ posts.0.titulo }}</a>
+                        </h3>
+                        <p class="text-secondary small mb-3">
+                            <i class="fas fa-calendar-alt me-1"></i>{{ posts.0.fecha_publicacion|date:"d M Y" }}
+                            <i class="fas fa-clock ms-3 me-1"></i>8 min lectura
+                        </p>
+                        <p class="card-text text-secondary">{{ posts.0.extracto|truncatechars:200 }}</p>
+                        <a href="/blog/{{ posts.0.slug }}/" class="btn btn-cyber-indigo rounded-pill">
+                            Leer más <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- Artículos Secundarios -->
+            {% for post in posts|slice:"1:" %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm hover-lift rounded-4 overflow-hidden h-100">
+                    {% if post.imagen %}
+                    <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" 
+                         class="card-img-top" style="height: 200px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body">
+                        <span class="badge badge-cyber mb-2">{{ post.categoria.nombre }}</span>
+                        <h5 class="card-title fw-bold">
+                            <a href="/blog/{{ post.slug }}/" class="text-dark text-decoration-none">{{ post.titulo }}</a>
+                        </h5>
+                        <p class="text-secondary small mb-3">
+                            <i class="fas fa-calendar-alt me-1"></i>{{ post.fecha_publicacion|date:"d M Y" }}
+                        </p>
+                        <p class="card-text text-secondary">{{ post.extracto|truncatechars:100 }}</p>
+                        <a href="/blog/{{ post.slug }}/" class="text-decoration-none fw-semibold text-cyber-indigo">
+                            Leer más <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-secondary text-center">Próximamente más artículos.</p>
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- NEWSLETTER -->
+<!-- ============================================================ -->
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold">Suscríbete a la Vanguardia</h2>
+                <p class="lead text-secondary">Recibe semanalmente insights sobre tecnología y gestión de proyectos directamente en tu bandeja de entrada.</p>
+            </div>
+            <div class="col-lg-6">
+                <form class="d-flex gap-3" action="#" method="post">
+                    <input type="email" class="form-control form-control-lg rounded-pill" placeholder="tu@correo.com" required>
+                    <button type="submit" class="btn btn-cyber-indigo rounded-pill px-5 py-2 fs-6">
+                        Suscribirme
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

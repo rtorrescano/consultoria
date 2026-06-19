@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Portafolio - Raúl Torrescano{% endblock %}
+
+{% block content %}
+
+<!-- ============================================================ -->
+<!-- HERO -->
+<!-- ============================================================ -->
+<section class="hero-gradient py-5 text-white">
+    <div class="container py-5">
+        <div class="text-center">
+            <span class="badge bg-white bg-opacity-10 rounded-pill px-4 py-2 mb-3">
+                <i class="fas fa-briefcase text-warning me-2"></i>Nuestro Trabajo
+            </span>
+            <h1 class="display-3 fw-bold mb-4">Portafolio de <span class="text-gradient-cyber">Soluciones Digitales</span></h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 700px;">
+                Explora nuestra selección de proyectos donde la precisión técnica y el diseño estratégico convergen para crear experiencias excepcionales.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FILTROS -->
+<!-- ============================================================ -->
+<section class="py-4 bg-light border-bottom">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <button class="btn btn-cyber-indigo rounded-pill px-4 py-2 filter-btn active" data-filter="all">Todos</button>
+            <button class="btn btn-outline-secondary rounded-pill px-4 py-2 filter-btn" data-filter="escuelas">Escuelas</button>
+            <button class="btn btn-outline-secondary rounded-pill px-4 py-2 filter-btn" data-filter="sistemas">Sistemas</button>
+            <button class="btn btn-outline-secondary rounded-pill px-4 py-2 filter-btn" data-filter="landing">Landing Pages</button>
+            <button class="btn btn-outline-secondary rounded-pill px-4 py-2 filter-btn" data-filter="consultoria">Consultoría</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PROYECTOS -->
+<!-- ============================================================ -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row g-4" id="project-grid">
+            {% for proyecto in proyectos %}
+            <div class="col-md-4 project-item" data-category="{{ proyecto.categoria.slug|default:'general' }}">
+                <div class="card h-100 border-0 shadow-sm hover-lift rounded-4 overflow-hidden">
+                    {% if proyecto.imagen_principal %}
+                    <img src="{{ proyecto.imagen_principal.url }}" alt="{{ proyecto.titulo }}" 
+                         class="card-img-top" style="height: 220px; object-fit: cover;">
+                    {% else %}
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 220px;">
+                        <i class="fas fa-image text-secondary" style="font-size: 3rem;"></i>
+                    </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <span class="badge badge-cyber mb-2">
+                            <i class="fas fa-tag me-1"></i>{{ proyecto.categoria.nombre|default:"General" }}
+                        </span>
+                        <h5 class="card-title fw-bold">{{ proyecto.titulo }}</h5>
+                        <p class="card-text text-secondary small">{{ proyecto.cliente }}</p>
+                        <p class="card-text text-secondary">{{ proyecto.descripcion_corta|truncatechars:100 }}</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            {% for tech in proyecto.tecnologias.all|slice:":3" %}
+                            <span class="badge bg-light text-secondary">{{ tech.nombre }}</span>
+                            {% endfor %}
+                        </div>
+                        <a href="#" class="btn btn-cyber-indigo rounded-pill btn-sm">
+                            Ver caso completo <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+                <p class="text-secondary fs-5">Próximamente más proyectos.</p>
+                <p class="text-secondary">Mientras tanto, puedes contactarme para conocer mi trabajo.</p>
+                <a href="/contacto/" class="btn btn-cyber-indigo rounded-pill px-5 py-3 mt-3">
+                    <i class="fas fa-comment-dots me-2"></i>Contactar
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CTA -->
+<!-- ============================================================ -->
+<section class="section-padding text-white" style="background: linear-gradient(135deg, #1a3a5c 0%, #2b5a8c 100%);">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">¿Tienes un proyecto en mente?</h2>
+        <p class="fs-5 text-white-50 mb-4">
+            Conversemos sobre cómo podemos transformar tu idea en realidad.
+        </p>
+        <a href="/contacto/" class="btn btn-light rounded-pill px-5 py-3 fw-bold text-dark">
+            <i class="fas fa-comment-dots me-2"></i>Contactar ahora
+        </a>
+    </div>
+</section>
+
+<script>
+    // Filtros de portafolio (JavaScript)
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remover clase activa de todos los botones
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('btn-cyber-indigo');
+                    btn.classList.add('btn-outline-secondary');
+                });
+                this.classList.remove('btn-outline-secondary');
+                this.classList.add('btn-cyber-indigo');
+                
+                const filterValue = this.getAttribute('data-filter');
+                
+                projectItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<style>
+    .text-gradient-cyber {
+        background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .badge-cyber {
+        background-color: rgba(79, 70, 229, 0.1);
+        color: #4f46e5;
+    }
+    .btn-cyber-indigo {
+        background-color: #4f46e5;
+        color: white;
+        transition: all 0.3s ease;
+    }
+    .btn-cyber-indigo:hover {
+        background-color: #4338ca;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+    }
+    .btn-outline-cyber-indigo {
+        border-color: #4f46e5;
+        color: #4f46e5;
+    }
+    .btn-outline-cyber-indigo:hover {
+        background-color: #4f46e5;
+        color: white;
+    }
+    .hover-lift {
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    }
+    .section-padding {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    .hero-gradient {
+        background: linear-gradient(135deg, #1a3a5c 0%, #0d1f33 100%);
+        position: relative;
+        overflow: hidden;
+    }
+</style>
+
+{% endblock %}

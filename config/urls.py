@@ -1,16 +1,13 @@
 from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
+from django.urls import path
+from apps.core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apps.core.urls')),
-    path('portafolio/', include('apps.portfolio.urls')),
-    path('blog/', include('apps.blog.urls')),
-    path('contacto/', include('apps.contact.urls')),
+    path('', views.home, name='home'),
+    path('servicios/', views.servicios, name='servicios'),
+    path('portafolio/', views.portafolio, name='portafolio'),
+    path('sobre-mi/', views.sobre_mi, name='sobre_mi'),
+    path('blog/', views.blog, name='blog'),
+    path('contacto/', views.contacto, name='contacto'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

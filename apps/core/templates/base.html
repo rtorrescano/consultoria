@@ -3,109 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{% block description %}Desarrollador web y consultor de proyectos en México. Especialista en landing pages, sitios para escuelas y sistemas a medida.{% endblock %}">
+    <meta name="description" content="{% block description %}Consultoría y Desarrollo Web con enfoque en soluciones digitales de vanguardia.{% endblock %}">
     <title>{% block title %}Raúl Torrescano - Consultoría y Desarrollo Web{% endblock %}</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- Font Awesome 6 (íconos) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts (Geist) -->
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== ESTILOS GLOBALES ===== */
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #f7f9fb;
+            color: #191c1e;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* ===== GLASS MORPHISM ===== */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(15, 23, 42, 0.08);
+        }
+        
+        /* ===== TEXT GRADIENT ===== */
+        .text-gradient {
+            background: linear-gradient(135deg, #000000 0%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-gradient-cyber {
+            background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* ===== HOVER EFFECTS ===== */
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        
+        /* ===== HERO GRADIENTE ===== */
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a3a5c 0%, #0d1f33 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(79,70,229,0.1) 0%, transparent 70%);
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+        
+        /* ===== CYBER INDIGO ===== */
+        .bg-cyber-indigo {
+            background-color: #4f46e5;
+        }
+        .text-cyber-indigo {
+            color: #4f46e5;
+        }
+        .border-cyber-indigo {
+            border-color: #4f46e5;
+        }
+        
+        .btn-cyber-indigo {
+            background-color: #4f46e5;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-cyber-indigo:hover {
+            background-color: #4338ca;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+        }
+        
+        /* ===== NAV ===== */
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        /* ===== ANIMACIONES ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* ===== SECCIONES ===== */
+        .section-padding {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        
+        /* ===== BADGES ===== */
+        .badge-cyber {
+            background-color: rgba(79, 70, 229, 0.1);
+            color: #4f46e5;
+        }
+        
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4338ca;
+        }
+    </style>
     
     {% block extra_head %}{% endblock %}
 </head>
-<body class="font-['Inter'] antialiased bg-gray-50">
+<body>
     
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="/" class="text-xl font-bold text-blue-600">
-                    Raúl Torrescano
-                </a>
-                
-                <nav class="hidden md:flex space-x-8">
-                    <a href="/" class="text-gray-700 hover:text-blue-600 transition">Inicio</a>
-                    <a href="/portafolio/" class="text-gray-700 hover:text-blue-600 transition">Portafolio</a>
-                    <a href="/blog/" class="text-gray-700 hover:text-blue-600 transition">Blog</a>
-                    <a href="/contacto/" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                        Contactar
+    <!-- ============================================================ -->
+    <!-- NAVBAR -->
+    <!-- ============================================================ -->
+    <nav class="navbar navbar-expand-lg fixed-top nav-blur border-bottom shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="/">
+                <span class="text-dark">Raúl</span>
+                <span class="text-gradient">Torrescano</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/' %}active fw-bold text-cyber-indigo{% else %}text-dark{% endif %}" href="/">
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if '/servicios/' in request.path %}active fw-bold text-cyber-indigo{% else %}text-dark{% endif %}" href="/servicios/">
+                            Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if '/portafolio/' in request.path %}active fw-bold text-cyber-indigo{% else %}text-dark{% endif %}" href="/portafolio/">
+                            Portafolio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if '/sobre-mi/' in request.path %}active fw-bold text-cyber-indigo{% else %}text-dark{% endif %}" href="/sobre-mi/">
+                            Sobre mí
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if '/blog/' in request.path %}active fw-bold text-cyber-indigo{% else %}text-dark{% endif %}" href="/blog/">
+                            Blog
                     </a>
-                </nav>
-                
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-cyber-indigo rounded-pill px-4 py-2" href="/contacto/">
+                            <i class="fas fa-paper-plane me-2"></i>Contactar
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-        
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-4 py-3 space-y-2">
-                <a href="/" class="block text-gray-700 hover:text-blue-600">Inicio</a>
-                <a href="/portafolio/" class="block text-gray-700 hover:text-blue-600">Portafolio</a>
-                <a href="/blog/" class="block text-gray-700 hover:text-blue-600">Blog</a>
-                <a href="/contacto/" class="block bg-blue-600 text-white px-4 py-2 rounded-lg text-center">Contactar</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main>
+    </nav>
+    
+    <!-- ============================================================ -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ============================================================ -->
+    <main class="pt-5">
         {% block content %}{% endblock %}
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-white font-bold text-lg mb-4">Raúl Torrescano</h3>
-                    <p class="text-sm">Transformando ideas en soluciones digitales que impulsan tu negocio.</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Enlaces</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="/" class="hover:text-white transition">Inicio</a></li>
-                        <li><a href="/portafolio/" class="hover:text-white transition">Portafolio</a></li>
-                        <li><a href="/blog/" class="hover:text-white transition">Blog</a></li>
-                        <li><a href="/contacto/" class="hover:text-white transition">Contacto</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Servicios</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-white transition">Landing Pages</a></li>
-                        <li><a href="#" class="hover:text-white transition">Sitios para Escuelas</a></li>
-                        <li><a href="#" class="hover:text-white transition">Sistemas a Medida</a></li>
-                        <li><a href="#" class="hover:text-white transition">Consultoría PM</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Conecta</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-2xl hover:text-white transition"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-2xl hover:text-white transition"><i class="fab fa-github"></i></a>
-                        <a href="#" class="text-2xl hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+    
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <footer class="bg-dark text-white-50 py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h3 class="text-white mb-3">
+                        Raúl <span class="text-warning">Torrescano</span>
+                    </h3>
+                    <p class="text-white-50">
+                        Transformando ideas en soluciones digitales que impulsan tu negocio.
+                    </p>
+                    <div class="d-flex gap-3 fs-4">
+                        <a href="#" class="text-white-50 hover:text-warning transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-white-50 hover:text-warning transition"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-white-50 hover:text-warning transition"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
+                
+                <div class="col-md-2">
+                    <h5 class="text-white mb-3">Navegación</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-white-50 text-decoration-none">Inicio</a></li>
+                        <li><a href="/portafolio/" class="text-white-50 text-decoration-none">Portafolio</a></li>
+                        <li><a href="/blog/" class="text-white-50 text-decoration-none">Blog</a></li>
+                        <li><a href="/contacto/" class="text-white-50 text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3">
+                    <h5 class="text-white mb-3">Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">Landing Pages</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Sitios para Escuelas</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Sistemas a Medida</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Consultoría PM</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3">
+                    <h5 class="text-white mb-3">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fas fa-envelope text-warning"></i>
+                            <span>raul@tudominio.com</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fas fa-phone text-warning"></i>
+                            <span>+52 55 1234 5678</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-warning"></i>
+                            <span>CDMX, México</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+            
+            <div class="border-top border-secondary mt-4 pt-4 text-center text-white-50">
                 © {% now "Y" %} Raúl Torrescano. Todos los derechos reservados.
             </div>
         </div>
     </footer>
-
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scripts -->
     <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        // Smooth scroll reveal (opcional)
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.glass-card, .hover-lift');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.7s ease';
+                observer.observe(card);
+            });
         });
     </script>
+    
     {% block extra_js %}{% endblock %}
 </body>
 </html>
